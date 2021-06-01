@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PrestacaoDeServicosModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="TB_CLIENTE">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cpf" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cidade" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="endereco" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="telefone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TB_SERVICO" Relationship="Self.FK__TB_SERVIC__id_cl__267ABA7A" FromRole="TB_CLIENTE" ToRole="TB_SERVICO" />
+  </EntityType>
+  <EntityType Name="TB_SERVICO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="dataServico" Type="DateTime" Precision="3" />
+    <Property Name="dataPrevistaConclusaoServico" Type="DateTime" Precision="3" />
+    <Property Name="id_cliente" Type="Int32" />
+    <Property Name="id_tipo_servico" Type="Int32" />
+    <NavigationProperty Name="TB_CLIENTE" Relationship="Self.FK__TB_SERVIC__id_cl__267ABA7A" FromRole="TB_SERVICO" ToRole="TB_CLIENTE" />
+    <NavigationProperty Name="TB_TIPO_SERVICO" Relationship="Self.FK__TB_SERVIC__id_ti__276EDEB3" FromRole="TB_SERVICO" ToRole="TB_TIPO_SERVICO" />
+  </EntityType>
+  <EntityType Name="TB_TIPO_SERVICO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="valor" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="descricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TB_SERVICO" Relationship="Self.FK__TB_SERVIC__id_ti__276EDEB3" FromRole="TB_TIPO_SERVICO" ToRole="TB_SERVICO" />
+  </EntityType>
+  <Association Name="FK__TB_SERVIC__id_cl__267ABA7A">
+    <End Role="TB_CLIENTE" Type="Self.TB_CLIENTE" Multiplicity="0..1" />
+    <End Role="TB_SERVICO" Type="Self.TB_SERVICO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_CLIENTE">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TB_SERVICO">
+        <PropertyRef Name="id_cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TB_SERVIC__id_ti__276EDEB3">
+    <End Role="TB_TIPO_SERVICO" Type="Self.TB_TIPO_SERVICO" Multiplicity="0..1" />
+    <End Role="TB_SERVICO" Type="Self.TB_SERVICO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_TIPO_SERVICO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TB_SERVICO">
+        <PropertyRef Name="id_tipo_servico" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PrestacaoDeServicosEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="TB_CLIENTE" EntityType="Self.TB_CLIENTE" />
+    <EntitySet Name="TB_SERVICO" EntityType="Self.TB_SERVICO" />
+    <EntitySet Name="TB_TIPO_SERVICO" EntityType="Self.TB_TIPO_SERVICO" />
+    <AssociationSet Name="FK__TB_SERVIC__id_cl__267ABA7A" Association="Self.FK__TB_SERVIC__id_cl__267ABA7A">
+      <End Role="TB_CLIENTE" EntitySet="TB_CLIENTE" />
+      <End Role="TB_SERVICO" EntitySet="TB_SERVICO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TB_SERVIC__id_ti__276EDEB3" Association="Self.FK__TB_SERVIC__id_ti__276EDEB3">
+      <End Role="TB_TIPO_SERVICO" EntitySet="TB_TIPO_SERVICO" />
+      <End Role="TB_SERVICO" EntitySet="TB_SERVICO" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

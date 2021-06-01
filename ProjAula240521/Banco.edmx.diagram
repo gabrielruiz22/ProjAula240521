@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0316de3b6300407b9599fc10a494708e" Name="Diagram1">
+        <EntityTypeShape EntityType="PrestacaoDeServicosModel.sysdiagrams" Width="1.5" PointX="2.875" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PrestacaoDeServicosModel.TB_CLIENTE" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="PrestacaoDeServicosModel.TB_SERVICO" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="PrestacaoDeServicosModel.TB_TIPO_SERVICO" Width="1.5" PointX="0.75" PointY="4.125" IsExpanded="true" />
+        <AssociationConnector Association="PrestacaoDeServicosModel.FK__TB_SERVIC__id_cl__267ABA7A" ManuallyRouted="false" />
+        <AssociationConnector Association="PrestacaoDeServicosModel.FK__TB_SERVIC__id_ti__276EDEB3" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

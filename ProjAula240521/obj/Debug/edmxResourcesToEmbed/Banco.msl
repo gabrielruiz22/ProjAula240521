@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PrestacaoDeServicosModelStoreContainer" CdmEntityContainer="PrestacaoDeServicosEntities">
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="PrestacaoDeServicosModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_CLIENTE">
+      <EntityTypeMapping TypeName="PrestacaoDeServicosModel.TB_CLIENTE">
+        <MappingFragment StoreEntitySet="TB_CLIENTE">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="cpf" ColumnName="cpf" />
+          <ScalarProperty Name="cidade" ColumnName="cidade" />
+          <ScalarProperty Name="endereco" ColumnName="endereco" />
+          <ScalarProperty Name="telefone" ColumnName="telefone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_SERVICO">
+      <EntityTypeMapping TypeName="PrestacaoDeServicosModel.TB_SERVICO">
+        <MappingFragment StoreEntitySet="TB_SERVICO">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="dataServico" ColumnName="dataServico" />
+          <ScalarProperty Name="dataPrevistaConclusaoServico" ColumnName="dataPrevistaConclusaoServico" />
+          <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+          <ScalarProperty Name="id_tipo_servico" ColumnName="id_tipo_servico" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_TIPO_SERVICO">
+      <EntityTypeMapping TypeName="PrestacaoDeServicosModel.TB_TIPO_SERVICO">
+        <MappingFragment StoreEntitySet="TB_TIPO_SERVICO">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="valor" ColumnName="valor" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
