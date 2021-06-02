@@ -26,10 +26,10 @@ namespace ProjAula240521
         protected void GVServico_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             int idItem = Convert.ToInt32(e.CommandArgument.ToString());
-            PrestacaoDeServicosEntities contextViagem = new PrestacaoDeServicosEntities();
+            PrestacaoDeServicosEntities contextServico = new PrestacaoDeServicosEntities();
             TB_SERVICO servico = new TB_SERVICO();
 
-            servico = contextViagem.TB_SERVICO.First(c => c.ID == idItem);
+            servico = contextServico.TB_SERVICO.First(c => c.ID == idItem);
 
             if (e.CommandName == "ALTERAR")
             {
@@ -37,8 +37,8 @@ namespace ProjAula240521
             }
             else if (e.CommandName == "EXCLUIR")
             {
-                contextViagem.TB_SERVICO.Remove(servico);
-                contextViagem.SaveChanges();
+                contextServico.TB_SERVICO.Remove(servico);
+                contextServico.SaveChanges();
                 string msg = "Servico excluida com sucesso!";
                 string titulo = "Informacao";
                 CarregarLista();
@@ -51,6 +51,11 @@ namespace ProjAula240521
             h1.InnerText = titulo;
             lblMsgPopup.InnerText = mensagem;
             ClientScript.RegisterStartupScript(typeof(Page), Guid.NewGuid().ToString(), "MostrarPopupMensagem();", true);
+        }
+
+        protected void GVServico_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

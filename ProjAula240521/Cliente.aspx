@@ -42,14 +42,14 @@
         </div>
         <asp:Button class="btn btn-primary" ID="btnCadastrar" runat="server" Text="Salvar"
             OnClick="btnCadastrar_Click" />
-    </form>
     <br />
-    <% if (!String.IsNullOrEmpty(lblmsg.Text))
+        <% if (!String.IsNullOrEmpty(lblmsg.Text))
         {%>
     <div class="alert alert-success">
         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
         <strong>
             <asp:Label ID="lblmsg" runat="server" Text=""></asp:Label></strong>
     </div>
-    <%} %>
-</asp:Content>
+        <%} %>
+    </form>
+    </asp:Content>
